@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# BGM（著作権あり・ローカルのみ使用）
+audio/*.mp3

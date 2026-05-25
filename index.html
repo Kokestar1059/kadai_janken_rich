@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけんアプリ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="script.js"></script>
+</head>
+
+<!-- ! ボディの中身を中央揃えで縦位置に並べる指示felxとflex-col、items-centerで -->
+<body class="bg-gray-900 text-white flex flex-col items-center p-6 gap-6">
+
+  <h1 class="text-2xl font-bold">LOSER!!</h1>
+
+  <p id="loading" class="text-gray-400">Model loading</p>
+
+  <!-- ビデオの表示。autoplayで自動再生、playsinlineで画面内で再生、scale-x-[-1]で左右反転 -->
+  <video id="video" autoplay playsinline class="w-full max-w-md rounded-xl scale-x-[-1]"></video>
+  <canvas id="canvas" class="hidden"></canvas>
+
+  <!-- ユーザーの手、PCの手を横並びに表示する -->
+  <div class="flex gap-6 w-full max-w-md">
+    <div class="flex-1 bg-gray-800 rounded-xl p-4 text-center">
+      <p class="text-sm text-gray-400 mb-2">あなたの手</p>
+      <p id="user-hand" class="text-5xl">？</p>
+    </div>
+    <div class="flex-1 bg-gray-800 rounded-xl p-4 text-center">
+      <p class="text-sm text-gray-400 mb-2">PCの手</p>
+      <p id="ai-hand" class="text-5xl">？</p>
+    </div>
+  </div>
+
+  <p id="result" class="text-2xl font-bold text-red-400 h-8"></p>
+
+<button id="start-btn" class="bg-yellow-500 rounded-xl p-4 font-bold">じゃんけんをする</button>
+
+<p id="countdown" class="text-6xl font-bold text-yellow-300 h-20 hidden">3</p>
+
+<p id="taunt" class="text-lg bg-pink-500 rounded-xl p-4 font-bold  h-auto text-center hidden">おたんこなす！</p>
+
+<!-- githubにはあげない -->
+<!-- <audio id="bgm" src="audio/yakyukenBGM.mp3" loop></audio> -->
+</body>
+</html>
