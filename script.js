@@ -74,8 +74,8 @@ function recognizeLoop(recognizer) {
   canvas.height = video.videoHeight;
   ctx.drawImage(video, 0, 0);
 
-  const results = recognizer.recognizeForVideo(canvas, performance.now());
-  const gestureName = results.gestures?.[0]?.[0]?.categoryName ?? null;
+  // プレビュー専用：認識はするがUIには反映しない（VIDEO モード維持のため呼び出しは継続）
+  recognizer.recognizeForVideo(canvas, performance.now());
 
   requestAnimationFrame(() => recognizeLoop(recognizer));
 }
@@ -100,9 +100,10 @@ async function startGame(recognizer) {
   const countdownEl = document.getElementById("countdown");
   const tauntEl = document.getElementById("taunt");
   if (!bgmStarted) {
-    document.getElementById("bgm").play().catch(() => {});
+    const bgm = document.getElementById("bgm");
+    if (bgm) bgm.play().catch(() => {});  // bgm要素がない場合はスキップ
     bgmStarted = true;
-  }  
+  }
   startBtn.disabled = true;
   countdownEl.classList.remove("hidden");
   countdownEl.textContent = "じゃん";
