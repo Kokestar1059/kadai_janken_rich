@@ -8,7 +8,7 @@
 - PCは勝つたびに嫌味なコメントがランダムで表示される
 
 ## ③アプリのデプロイURL
-https://
+https://Kokestar1059.github.io/kadai_janken_rich/
 
 ## ④アプリのログイン用IDまたはPassword（ある場合）
 - ログイン機能なし（そのまま使用可能）
